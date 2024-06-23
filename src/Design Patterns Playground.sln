@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Behavioral Patterns", "Behavioral Patterns", "{642F2780-0771-48F8-A992-F721F9E516EF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Visitor Pattern", "Visitor Pattern", "{5FB403EA-DC77-4E33-A1B3-7703069A69B3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Real-World Scenarios", "Real-World Scenarios", "{348C36C0-729A-47C4-B624-2BAA90DC3F0A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Phowr", "Phowr", "{EDC77B52-3E46-4F5D-B80A-2DF79441B22A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phowr", "Real-World Scenarios\Phowr\Phowr\Phowr.csproj", "{321180B5-FBE7-4135-A4B9-342A4A74555D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phowr.Core", "Real-World Scenarios\Phowr\Phowr.Core\Phowr.Core.csproj", "{B3D4B3EC-53AA-41B9-A5BE-6945AB71BF38}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{58E7DFC6-295E-480A-B571-74EA2AA57ADF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{321180B5-FBE7-4135-A4B9-342A4A74555D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{321180B5-FBE7-4135-A4B9-342A4A74555D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{321180B5-FBE7-4135-A4B9-342A4A74555D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{321180B5-FBE7-4135-A4B9-342A4A74555D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{321180B5-FBE7-4135-A4B9-342A4A74555D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{321180B5-FBE7-4135-A4B9-342A4A74555D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B3D4B3EC-53AA-41B9-A5BE-6945AB71BF38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3D4B3EC-53AA-41B9-A5BE-6945AB71BF38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3D4B3EC-53AA-41B9-A5BE-6945AB71BF38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3D4B3EC-53AA-41B9-A5BE-6945AB71BF38}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5FB403EA-DC77-4E33-A1B3-7703069A69B3} = {642F2780-0771-48F8-A992-F721F9E516EF}
+		{EDC77B52-3E46-4F5D-B80A-2DF79441B22A} = {348C36C0-729A-47C4-B624-2BAA90DC3F0A}
+		{321180B5-FBE7-4135-A4B9-342A4A74555D} = {EDC77B52-3E46-4F5D-B80A-2DF79441B22A}
+		{B3D4B3EC-53AA-41B9-A5BE-6945AB71BF38} = {EDC77B52-3E46-4F5D-B80A-2DF79441B22A}
+		{58E7DFC6-295E-480A-B571-74EA2AA57ADF} = {348C36C0-729A-47C4-B624-2BAA90DC3F0A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {56A6CB2C-1178-4CF9-B6A8-C2AB30EF122E}
+	EndGlobalSection
+EndGlobal
