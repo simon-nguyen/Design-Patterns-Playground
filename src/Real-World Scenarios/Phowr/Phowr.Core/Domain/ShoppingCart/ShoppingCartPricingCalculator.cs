@@ -1,4 +1,6 @@
-﻿namespace Phowr.Core.Domain;
+﻿using System.Linq;
+
+namespace Phowr.Core.Domain;
 
 public class ShoppingCartPricingCalculator(MoneyCurrency Currency) : IShoppingCartPricingVisitor
 {
@@ -20,9 +22,10 @@ public class ShoppingCartPricingCalculator(MoneyCurrency Currency) : IShoppingCa
     {
         if (TotalPrice == Money.Zero()) return;
 
-        if (TotalPrice <= discount.DiscountAmount) return;
+        var totalDiscount = discount.GetDiscountDetails(TotalPrice).Select(d => d.DiscountAmount).Sum(Currency);
+        if (TotalPrice <= totalDiscount) return;
 
-        DiscountPrice = _calculatingPrice = TotalPrice - discount.DiscountAmount;
+        DiscountPrice = _calculatingPrice = TotalPrice - totalDiscount;
     }
 
     public void Visit(Tax tax)

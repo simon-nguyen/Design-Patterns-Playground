@@ -6,5 +6,14 @@ namespace Phowr.Core.Domain;
 
 public interface IDiscount
 {
-    Money DiscountAmount { get; }
+    IDiscount GetWithin(DiscountContext context);
+    IEnumerable<DiscountInfo> GetDiscountDetails(Money price);
+}
+
+public record DiscountInfo(string Label, Money DiscountAmount)
+{
+}
+
+public record DiscountContext
+{
 }

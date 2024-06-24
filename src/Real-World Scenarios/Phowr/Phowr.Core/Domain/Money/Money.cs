@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 
 namespace Phowr.Core.Domain;
 
@@ -60,8 +61,11 @@ public readonly record struct Money(decimal Amount, MoneyCurrency Currency)
     public static Money operator *(Money money, double multiplier)
         => new(money.Amount * (decimal)multiplier, money.Currency);
 
-    public static Money operator /(Money money, int multiplier)
+    public static Money operator *(Money money, decimal multiplier)
         => new(money.Amount * multiplier, money.Currency);
+
+    //public static Money operator /(Money money, int multiplier)
+    //    => new(money.Amount * multiplier, money.Currency);
 
     public static bool EnsureTheSameCurrency(Money a, Money b)
         => a.Currency == b.Currency;
@@ -69,7 +73,7 @@ public readonly record struct Money(decimal Amount, MoneyCurrency Currency)
 
 public readonly record struct MoneyCurrency(string Code, string Symbol)
 {
-    public static MoneyCurrency GetVietnameseCurrency
+    public static MoneyCurrency Dong
         => Get("VN");
 
     private static MoneyCurrency Get(string countryIso2)
