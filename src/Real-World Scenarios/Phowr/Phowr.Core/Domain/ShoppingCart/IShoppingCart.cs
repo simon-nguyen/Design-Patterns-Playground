@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Phowr.Core.Domain.ShoppingCart
+namespace Phowr.Core.Domain;
+
+public interface IShoppingCart
 {
-    public interface IShoppingCart
-    {
-        Money TotalPrice { get; }
-    }
+    IReadOnlyCollection<IShoppingCartItem> Items { get; }
+    Money TotalNetPrice { get; }
 }

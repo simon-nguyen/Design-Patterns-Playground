@@ -18,6 +18,9 @@ public static class MoneyExtensions
     public static bool IsLessThanOrEqualsToZero(this Money money)
         => money.Amount <= Money.ZeroAmount;
 
+    public static bool EnsureTheSameCurrency(this Money actual, Money expected)
+        => actual.EnsureTheSameCurrency(expected);
+
     public static Money GetTaxAmount(this Money money, Tax tax)
-        => Money.Create(money.Amount * tax.Percent / 100, money.Currency);
+        => Money.Create(money.Amount * (decimal)tax.Percent, money.Currency);
 }

@@ -11,7 +11,7 @@ namespace Phowr.Core.Domain.ShoppingCart
 
         public int Quantity => quantity;
 
-        public virtual void Accept(IShoppingCartVisitor visitor)
+        public virtual void Accept(IShoppingCartPricingVisitor visitor)
         {
             visitor.Visit(this);
         }

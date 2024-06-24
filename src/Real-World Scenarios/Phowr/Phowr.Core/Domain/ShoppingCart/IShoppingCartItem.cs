@@ -10,5 +10,5 @@ public interface IShoppingCartItem
 
     int Quantity { get; }
 
-    void Accept(IShoppingCartVisitor visitor);
+    void Accept(IShoppingCartPricingVisitor visitor);
 }
