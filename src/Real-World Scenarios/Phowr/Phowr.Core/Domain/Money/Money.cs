@@ -9,7 +9,7 @@ public readonly record struct Money(decimal Amount, MoneyCurrency Currency)
     public const decimal ZeroAmount = 0.0m;
 
     public static Money Zero()
-        => Zero(MoneyCurrency.Default());
+        => Zero(MoneyCurrency.FromSystemCulture());
 
     public static Money Zero(MoneyCurrency currency)
         => new(ZeroAmount, currency);
@@ -73,20 +73,12 @@ public readonly record struct Money(decimal Amount, MoneyCurrency Currency)
 
 public readonly record struct MoneyCurrency(string Code, string Symbol)
 {
+    public const string UnknownCurrencyCode = "N/A";
+
     public static MoneyCurrency Dong
-        => Get("VN");
+        => FromCulture(CultureInfo.GetCultureInfo("vn"));
 
-    private static MoneyCurrency Get(string countryIso2)
-    {
-        var countryInfo = new RegionInfo(countryIso2);
-        return new MoneyCurrency
-        {
-            Code = countryInfo.ISOCurrencySymbol,
-            Symbol = countryInfo.CurrencySymbol
-        };
-    }
-
-    public static MoneyCurrency Default()
+    public static MoneyCurrency FromSystemCulture()
     {
         var country = CultureInfo.CurrentCulture.LCID;
         var countryInfo = new RegionInfo(country);
@@ -96,4 +88,17 @@ public readonly record struct MoneyCurrency(string Code, string Symbol)
             Symbol = countryInfo.CurrencySymbol
         };
     }
+
+    public static MoneyCurrency FromCulture(CultureInfo currentCulture)
+    {
+        var countryInfo = new RegionInfo(currentCulture.LCID);
+        return new MoneyCurrency
+        {
+            Code = countryInfo.ISOCurrencySymbol,
+            Symbol = countryInfo.CurrencySymbol
+        };
+    }
+
+    public static MoneyCurrency Unknown()
+        => new(UnknownCurrencyCode, string.Empty);
 }

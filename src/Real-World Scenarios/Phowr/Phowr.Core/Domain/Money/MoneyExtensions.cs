@@ -7,6 +7,9 @@ namespace Phowr.Core.Domain;
 
 public static class MoneyExtensions
 {
+    public static bool IsUnknownCurrency(this MoneyCurrency currency)
+        => currency.Code.Equals(MoneyCurrency.UnknownCurrencyCode, StringComparison.CurrentCultureIgnoreCase);
+
     public static bool IsGreaterThanZero(this Money money)
         => money.Amount > Money.ZeroAmount;
 
@@ -23,7 +26,7 @@ public static class MoneyExtensions
         => actual.EnsureTheSameCurrency(expected);
 
     public static Money GetTaxAmount(this Money money, Tax tax)
-        => Money.Create(money.Amount * (decimal)tax.Percent, money.Currency);
+        => Money.Create(money.Amount * (decimal)tax.Percentage, money.Currency);
 
     public static Money Sum(this IEnumerable<Money> source, MoneyCurrency currency)
         => new(source.Select(m => m.Amount).Sum(), currency);

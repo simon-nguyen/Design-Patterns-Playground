@@ -4,20 +4,20 @@ using System.Text;
 
 namespace Phowr.Core.Domain;
 
-public readonly record struct Tax(double Percent)
+public readonly record struct Tax(decimal Percentage)
 {
-    public const double Min = 0.0d;
+    public const decimal Min = 0.0m;
 
-    public static Tax From(double percent)
+    public static Tax From(decimal percentage)
     {
-        if (percent < Min)
+        if (percentage < Min)
             throw new ArgumentOutOfRangeException("Tax value should be positive.");
 
-        return new Tax(percent);
+        return new Tax(percentage);
     }
 
     public override readonly string ToString()
-        => Percent.ToString("{#0.00%}");
+        => Percentage.ToString("{#0.00%}");
 }
 
 public readonly record struct Percentage(decimal Value)

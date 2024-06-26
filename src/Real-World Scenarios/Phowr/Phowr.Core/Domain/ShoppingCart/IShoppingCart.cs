@@ -6,6 +6,6 @@ namespace Phowr.Core.Domain;
 
 public interface IShoppingCart
 {
-    IReadOnlyCollection<IShoppingCartItem> Items { get; }
+    IReadOnlyList<IShoppingCartItem> Items { get; }
     Money TotalNetPrice { get; }
 }

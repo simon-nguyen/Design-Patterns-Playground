@@ -5,7 +5,8 @@ using System.Text;
 
 namespace Phowr.Core.Domain.ShoppingCart
 {
-    public class ShoppingCartItemBase(ISellingItem item, int quantity) : IShoppingCartItem
+    public class ShoppingCartItemBase(ISellingItem item, int quantity)
+        : IShoppingCartItem
     {
         public ISellingItem Item => item;
 
